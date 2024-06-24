@@ -10,7 +10,7 @@ import { useMemo } from 'react'
 import { formatUnits } from 'viem'
 import { PRIZE_POOL_INFO } from '@constants/config'
 import { useEthPriceInUsd } from '@hooks/useEthPrice'
-import { Loading } from './Loading'
+//import { Loading } from './Loading'
 
 interface GrandPrizeProps {
   className?: string
@@ -50,12 +50,12 @@ export const GrandPrize = (props: GrandPrizeProps) => {
 
   return (
     <div className={classNames('flex flex-col gap-1 items-center', className)}>
-      <span className='text-2xl text-pt-purple-300'>The First Grand Prize is October 26th!</span>
+      <span className='text-1xl text-pt-purple-300'>.</span>
       <PrizeTokenAmount amount={tokenAmount} className='h-16 text-6xl' />
       <PrizeUsdAmount
         amount={tokenAmount}
         price={prizeToken?.price}
-        className='h-8 text-2xl text-pt-purple-300'
+        className='h-5 text-2xl text-pt-purple-300'
       />
     </div>
   )
@@ -65,14 +65,15 @@ const PrizeTokenAmount = (props: { amount?: number; className?: string }) => {
   const { amount, className } = props
 
   return (
-    <span className={classNames('flex gap-2 items-center', className)}>
+    <span className={classNames('flex gap-1 items-center', className)}>
       {amount !== undefined ? (
         <>
           <Image src='ethLogo.svg' alt='Prize Token' width={28} height={28} />{' '}
           {amount.toLocaleString('en', { maximumFractionDigits: 2 })}
         </>
       ) : (
-        <Loading className='h-4' />
+         //<Loading className='h-4' />
+        <span>.</span>
       )}
     </span>
   )

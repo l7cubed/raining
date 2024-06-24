@@ -7,8 +7,8 @@ export const Loading = (props: LoadingProps) => {
 
   return (
     <svg
-      width='120'
-      height='30'
+      width='60'
+      height='15'
       viewBox='0 0 120 30'
       xmlns='http://www.w3.org/2000/svg'
       fill='#fff'

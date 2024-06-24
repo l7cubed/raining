@@ -21,15 +21,17 @@ export const Navbar = (props: NavbarProps) => {
         <Image
           src='makeit.svg'
           alt='RainETH Logo'
-          width={450}
+          width={420}
           height={100}
           priority={true}
         />
-        <ConnectButton
-          showBalance={false}
-          chainStatus={{ smallScreen: 'icon', largeScreen: 'full' }}
-          accountStatus='full'
-        />
+        <div className='flex-shrink-0 mr-4'> {/* Added margin-right */}
+          <ConnectButton
+            showBalance={false}
+            chainStatus={{ smallScreen: 'icon', largeScreen: 'full' }}
+            accountStatus='full'
+          />
+        </div>
       </div>
     </nav>
   )
