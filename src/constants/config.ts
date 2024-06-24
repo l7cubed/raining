@@ -1,10 +1,20 @@
-import { NETWORK, PRIZE_POOLS, VaultList } from '@generationsoftware/hyperstructure-client-js'
+// @constants/config.ts
+import { NETWORK, VaultList } from '@generationsoftware/hyperstructure-client-js'
 import { createConfig, http } from 'wagmi'
-import { mainnet, optimism } from 'wagmi/chains'
+import { base } from 'wagmi/chains'
 
-export const PRIZE_POOL_INFO = PRIZE_POOLS.find(
-  (entry) => entry.chainId === NETWORK.optimism
-) as NonNullable<(typeof PRIZE_POOLS)[number]>
+// Renaming local PRIZE_POOLS to avoid conflict
+export const LOCAL_PRIZE_POOLS = [
+  {
+    chainId: NETWORK.base,
+    address: '0x988072af9c099365de09b77cd53377d0e1c54509',
+    options: { /* any options specific to your prize pool */ }
+  },
+]
+
+export const PRIZE_POOL_INFO = LOCAL_PRIZE_POOLS.find(
+  (entry) => entry.chainId === NETWORK.base
+) as NonNullable<(typeof LOCAL_PRIZE_POOLS)[number]>
 
 export const VAULT_LIST = {
   name: 'PoolTogether Template App Vault List',
@@ -12,27 +22,17 @@ export const VAULT_LIST = {
   timestamp: '2024-04-30T15:33:47Z',
   tokens: [
     {
-      chainId: NETWORK.optimism,
-      address: '0x2998c1685E308661123F64B333767266035f5020',
-      name: 'Prize WETH',
-      logoURI: 'przWETH.svg'
-    },
-    {
-      chainId: NETWORK.optimism,
-      address: '0x03D3CE84279cB6F54f5e6074ff0F8319d830dafe',
-      name: 'Prize USDC',
-      logoURI: 'przUSDC.svg'
+      chainId: NETWORK.base,
+      address: '0x621f4A9D1B4cbC457642B740f4111F4068b06d39',
+      name: 'WIN Staking',
+      logoURI: 'rainETHToken.svg'
     }
   ]
 } as const satisfies VaultList
 
-/**
- * @dev to edit the wallet list or add a walletconnect project ID, use RainbowKit's `getDefaultConfig` instead of `createConfig`
- */
 export const WAGMI_CONFIG = createConfig({
-  chains: [mainnet, optimism],
+  chains: [base],
   transports: {
-    [NETWORK.mainnet]: http(),
-    [NETWORK.optimism]: http()
+    [NETWORK.base]: http()
   }
 })

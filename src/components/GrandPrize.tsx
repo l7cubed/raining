@@ -16,12 +16,19 @@ interface GrandPrizeProps {
   className?: string
 }
 
+const formattedAddress = (address: string): `0x${string}` => {
+  if (!address.startsWith('0x')) {
+    return `0x${address}` as `0x${string}`;
+  }
+  return address as `0x${string}`;
+};
+
 export const GrandPrize = (props: GrandPrizeProps) => {
   const { className } = props
 
   const prizePool = usePrizePool(
     PRIZE_POOL_INFO.chainId,
-    PRIZE_POOL_INFO.address,
+    formattedAddress(PRIZE_POOL_INFO.address),
     PRIZE_POOL_INFO.options
   )
 
@@ -30,7 +37,10 @@ export const GrandPrize = (props: GrandPrizeProps) => {
   const { data: prizeToken } = usePrizeTokenPrice(prizePool)
 
   const tokenAmount = useMemo(() => {
-    const prizePoolId = getPrizePoolId(PRIZE_POOL_INFO.chainId, PRIZE_POOL_INFO.address)
+    const prizePoolId = getPrizePoolId(
+      PRIZE_POOL_INFO.chainId,
+      formattedAddress(PRIZE_POOL_INFO.address)
+    )
     const rawTokenAmount = allPrizeInfo[prizePoolId]?.[0].amount.current
 
     if (!!prizeToken && !!rawTokenAmount) {
@@ -40,7 +50,7 @@ export const GrandPrize = (props: GrandPrizeProps) => {
 
   return (
     <div className={classNames('flex flex-col gap-1 items-center', className)}>
-      <span className='text-2xl text-pt-purple-300'>The grand prize is currently at...</span>
+      <span className='text-2xl text-pt-purple-300'>The First Grand Prize is October 26th!</span>
       <PrizeTokenAmount amount={tokenAmount} className='h-16 text-6xl' />
       <PrizeUsdAmount
         amount={tokenAmount}

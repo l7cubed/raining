@@ -1,3 +1,4 @@
+// app.tsx
 'use client'
 
 import { RainbowKitProvider } from '@rainbow-me/rainbowkit'

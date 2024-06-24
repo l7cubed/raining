@@ -6,7 +6,7 @@ export const getRainbowKitTheme = (): Theme => {
 
   const ptTheme: DeepPartial<Theme> = {
     colors: {
-      accentColor: '#8050E3',
+      accentColor: '#597CFF',
       connectButtonBackground: 'transparent',
       connectButtonText: '#F5F0FF'
     },

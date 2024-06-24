@@ -8,9 +8,9 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'PoolTogether App Template',
+  title: 'Make it RainETH',
   description:
-    'This is a minimal template for a static NextJS app that interacts with the PoolTogether protocol'
+    'Lost Keys are the Naritive,but we are the Story'
 }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

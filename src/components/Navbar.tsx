@@ -19,10 +19,10 @@ export const Navbar = (props: NavbarProps) => {
     >
       <div className='w-full max-w-screen-xl flex items-center justify-between'>
         <Image
-          src='pooltogetherLogo.svg'
-          alt='PoolTogether Logo'
-          width={133}
-          height={52}
+          src='makeit.svg'
+          alt='RainETH Logo'
+          width={450}
+          height={100}
           priority={true}
         />
         <ConnectButton

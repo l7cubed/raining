@@ -10,14 +10,14 @@ const config: Config = {
             50: '#F5F0FF',
             100: '#DECEFF',
             200: '#C8ADFF',
-            300: '#B18CFF',
-            400: '#9B6AFF',
-            500: '#8050E3',
+            300: '#5D4',
+            400: '#5D4',
+            500: '#5D4',
             600: '#6538C1',
-            700: '#4C249F',
-            800: '#36147D',
-            900: '#24095B',
-            DEFAULT: '#8050E3'
+            700: '#5d4',
+            800: '#004AAD',
+            900: '#000',
+            DEFAULT: '#5d4'
           },
           teal: {
             light: '#35F0D0',
@@ -31,10 +31,10 @@ const config: Config = {
           },
           bg: {
             purple: {
-              light: '#5D3A97',
+              light: '#5D4',
               dark: '#2D0C66',
-              darker: '#21064E',
-              DEFAULT: '#2D0C66'
+              darker: '#000',
+              DEFAULT: '#000'
             }
           },
           warning: {
